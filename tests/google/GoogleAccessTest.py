@@ -7,7 +7,17 @@ class GoogleAccessTest(BaseTest):
         print('Run GoogleAccessTest')
 
     def run(self):
-        driver = self.get_chrome_driver()
-        driver.get('https://google.com.ua')
-        print("Google page title:", driver.title)
-        driver.quit()
+        self.run_chrome()
+        self.run_firefox()
+
+    def run_chrome(self):
+        chrome = self.get_chrome_driver()
+        chrome.get('https://google.com.ua')
+        print("Google page title (chrome):", chrome.title)
+        chrome.quit()
+
+    def run_firefox(self):
+        firefox = self.get_firefox_driver()
+        firefox.get('https://google.com.ua')
+        print("Google page title (firefox):", firefox.title)
+        firefox.quit()
