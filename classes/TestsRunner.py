@@ -26,7 +26,8 @@ class TestsRunner:
         module_test = import_module(module_path)
         class_test = getattr(module_test, class_name)
         if issubclass(class_test, BaseTest):
-            class_test().run()
+            if class_test.active:
+                class_test().run()
 
     @staticmethod
     def run_tests(tests_path):
