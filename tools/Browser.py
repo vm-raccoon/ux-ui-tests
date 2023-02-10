@@ -28,5 +28,14 @@ def get_firefox(options={}):
     return driver
 
 
+def get_edge(options={}):
+    debug = options.get("debug") or False
+    driver = webdriver.Edge(
+        # options=options,
+        executable_path=r"./webdrivers/msedgedriver"
+    )
+    return driver
+
+
 def set_size(driver, size):
     driver.set_window_size(size['width'], size['height'])
